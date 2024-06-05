@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { IoArrowBack, IoApertureSharp, IoChevronDownSharp, IoAnalytics } from "react-icons/io5";
+import { IoArrowBack, IoApertureSharp, IoChevronDownSharp, IoAlbums } from "react-icons/io5";
 import { BiSolidDashboard } from "react-icons/bi";
 import { FaUsers, FaProjectDiagram } from "react-icons/fa";
+import { FcDataConfiguration } from "react-icons/fc";
 
 export const Sidebar = () => {
     const [open, setOpen] = useState(true)
@@ -11,44 +12,52 @@ export const Sidebar = () => {
 
     const Menus = [
         {
-            title: 'Dashboard',
+            title: 'Inicio',
             path: '/dashboard',
             icon: <BiSolidDashboard />
         },
         {
-            title: 'Users',
+            title: 'Usuarios',
             path: '/users',
             icon: <FaUsers />
         },
-        { title: 'Media', spacing: true },
         {
-            title: 'Projects',
+            title: 'Configuración',
+            path: '/configuraciones',
+            icon: <FcDataConfiguration />
+        },
+
+        {
+            title: 'Planes',
+            path: '/client/planes',
+            icon: <IoAlbums />
+        },
+
+        { title: 'Servicios', spacing: true },
+        {
+            title: 'Pileos',
             submenu: true,
             icon: <FaProjectDiagram />,
             submenuItems: [
                 {
-                    title: 'Submenu 1',
-                    path: '/'
+                    title: 'Pileo',
+                    path: '/pileo'
                 },
                 {
-                    title: 'Submenu 2',
-                    path: '/'
+                    title: 'Firewalls',
+                    path: '/firewalls'
                 },
-                {
-                    title: 'Submenu 3',
-                    path: '/'
-                },
+                // {
+                //     title: 'Firewalls/Crear',
+                //     path: '/firewalls/new'
+                // },
             ]
         },
-        {
-            title: 'Analytics',
-            path: '/',
-            icon: <IoAnalytics />
-        },
+        
     ]
 
   return (
-    <div className={`bg-dark-purple h-screen p-1 pt-8 relative duration-300 ${open ? 'md:w-64' : 'md:w-16'} ${openMovile ? 'w-64' : 'w-1 p-1'}`}>
+    <div className={` bg-dark-purple h-full p-1 pt-8 relative duration-300 ${open ? 'md:w-64' : 'md:w-16'} ${openMovile ? 'w-64' : 'w-1 p-1'}`}>
         
         < IoArrowBack onClick={() => setOpen(!open)} className={`bg-white text-dark-purple text-3xl rounded-full absolute -right-3 top-9 border border-dark-purple cursor-pointer ${!open && 'rotate-180'}`}/>
 
@@ -58,7 +67,7 @@ export const Sidebar = () => {
         <div className={`md:inline-flex md:visible ${!openMovile && 'invisible'}`}>
             <IoApertureSharp className={`bg-green-500 text-4xl rounded cursor-pointer block float-left duration-700 ${open && 'rotate-[360deg]'}`}/>
             
-            <h1 className={`text-white text-2xl font-medium ml-2 duration-300 ${!open && 'scale-0'}`}>{open && 'Sistem Admin'}</h1>
+            <h1 className={`text-white text-2xl font-medium ml-2 duration-300 ${!open && 'scale-0'}`}>{open && 'Pileo'}</h1>
         </div>
 
         <ul className={`md:pt-4 md:visible ${!openMovile && 'invisible'}`}>

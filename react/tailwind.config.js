@@ -3,15 +3,18 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    'node_modules/flowbite-react/lib/esm/**/*.js',
   ],
   theme: {
     extend: {
       colors: {
-        "dark-purple": "#081A51",
+        "dark-purple": "#3b0764",
         "light-white": "rgba(255,255,255,0.18)"
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin')
+  ],
 }
 

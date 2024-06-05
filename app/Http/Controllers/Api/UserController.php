@@ -65,4 +65,10 @@ class UserController extends Controller
         $user->delete($user);
         return response()->json('', 204);
     }
+
+    public function getClient()
+    {
+        $user = auth()->user();
+        return response()->json($user, 200);
+    }
 }

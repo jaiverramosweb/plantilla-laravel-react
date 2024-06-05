@@ -39,26 +39,29 @@ export const Login = () => {
   }
 
   return (
-    <div className='login-signup-form animated fadeInDown'>
-      <div className="form">
-        <h1 className='title'>Login into your account</h1>
+    <div className="bg-[url('/img/imgPileo.avif')] w-screen h-screen bg-no-repeat bg-cover">
+      <div className='login-signup-form animated fadeInDown'>
+        <div className="form rounded-md opacity-95">
+          <img src="" alt="" />
+          <h1 className='title'>Incio de sesión</h1>
 
-        {
-          errors && <div className='alert'>
-            { Object.keys(errors).map( key => (
-              <p key={key} >{ errors[key][0] }</p>
-            ) ) }
-          </div>
-        }
+          {
+            errors && <div className='alert'>
+              { Object.keys(errors).map( key => (
+                <p key={key} >{ errors[key][0] }</p>
+              ) ) }
+            </div>
+          }
 
-        <form onSubmit={onSubmit}>
-          <input ref={emailRef} type="email" placeholder='Email' />
-          <input ref={passwordRef} type="password" placeholder='Password' />
-          <button className='btn btn-block'>Login</button>
-          <p className='message'>
-            Not Registered ? <Link to="/singnup">Create an account</Link>
-          </p>
-        </form>
+          <form onSubmit={onSubmit}>
+            <input ref={emailRef} type="email" placeholder='Email' />
+            <input ref={passwordRef} type="password" placeholder='Password' />
+            <button className='btn btn-block'>Login</button>
+            <p className='message'>
+              No estas registrado ? <Link to="/singnup">Crear cuenta</Link>
+            </p>
+          </form>
+        </div>
       </div>
     </div>
   )

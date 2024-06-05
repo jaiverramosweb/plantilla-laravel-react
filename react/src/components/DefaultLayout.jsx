@@ -23,25 +23,27 @@ export const DefaultLayout = () => {
     
 
   return (
-    <div id='defaultLayout'>
+    <div id='defaultLayout' className='flex w-screen h-screen'>
 
         <Sidebar />
 
-        <div className='content'>
-            <header>
-                <div></div>
-                <div>
-                    <span onClick={() => setOpenProfile(!openProfile)} className='cursor-pointer hover:text-dark-purple'>
-                        {user.name}
-                    </span>
-                    {
-                        openProfile &&  <DropDownProfile />
-                    }
-                </div>
-            </header>
-            <main>
-                <Outlet />
-            </main>
+        <div className='flex flex-col flex-grow'>
+
+
+                <header className='flex items-center'>
+                    <div className='flex items-center justify-center ml-auto'>
+                        <span onClick={() => setOpenProfile(!openProfile)} className='cursor-pointer  hover:text-dark-purple'>
+                            {user.name}
+                        </span>
+                        {
+                            openProfile &&  <DropDownProfile />
+                        }
+                    </div>
+                </header>
+                <main className='overflow-auto'>
+                    <Outlet />
+                </main>
+
         </div>
 
         {notification && (
